@@ -1,7 +1,7 @@
 .loader {
     border: 10px solid var(--icon-color);
     border-radius: 50%;
-    border-top: 10px solid rgb(255, 98, 0);
+    border-top: 10px solid var(--main-color);
     width: 80px;
     height: 80px;
     margin: 0 auto;
@@ -13,7 +13,7 @@
   }
   .load{
     height: 100%;
-    background-image: url('../assets/background/5.png');
+    background-image: url('../assets/background/4.png');
     background-size: cover;
     width: 100%; 
     position: absolute;
@@ -43,14 +43,14 @@
 
 .load .title-window{
       text-shadow:
-      0 0 4px #ff9c56,
-      0 0 11px #ff9c56,
-      0 0 19px #ff9c56,
-      0 0 40px rgb(255, 98, 0),
-      0 0 80px rgb(255, 98, 0),
-      0 0 90px rgb(255, 98, 0),
-      0 0 100px rgb(255, 98, 0),
-      0 0 150px rgb(255, 98, 0); 
+      0 0 4px var(--hover-color),
+      0 0 11px var(--hover-color),
+      0 0 19px var(--hover-color),
+      0 0 40px var(--main-color),
+      0 0 80px var(--main-color),
+      0 0 90px var(--main-color),
+      0 0 100px var(--main-color),
+      0 0 150px var(--main-color); 
 }
 
 @keyframes flicker {
@@ -72,4 +72,11 @@
       text-shadow: none;
   }    
 }
-
+.load .logo{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px;
+}
+.load .logo img{
+  width: 150px;
+}

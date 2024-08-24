@@ -16,7 +16,7 @@ async function fetchWords() {
 function setDifficulty(level) {
     document.getElementById("menu").style.display ="none";
     difficulty = level;
-    document.getElementById("difficulty").innerHTML = "difficulty: "+difficulty;
+    document.getElementById("difficulty").innerHTML =difficulty;
     startGame();
 }
 function giveHint() {
@@ -48,8 +48,8 @@ function startGame() {
     attemptsLeft = maxAttempts;
     document.getElementById('message').textContent = '';
     document.getElementById('hangman').textContent = '';
-    document.getElementById('score').textContent = 'Score: ' + score;
-    document.getElementById('level').textContent = 'Level: ' + level;
+    document.getElementById('score').textContent = score;
+    document.getElementById('level').textContent =  level;
     generateKeyboard();
     selectWord();
 
@@ -128,7 +128,7 @@ function handleGuess(letter) {
         score += 10;
         keyButton.classList.add('correct');
         icon.textContent = '✔️';
-        document.getElementById('score').textContent = 'Score: ' + score;
+        document.getElementById('score').textContent = score;
     } else {
         attemptsLeft--;
         keyButton.classList.add('incorrect');

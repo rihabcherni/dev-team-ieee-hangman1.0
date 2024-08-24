@@ -23,16 +23,34 @@
         <audio id="audio" autoplay loop= 'true' muted>
             <source src="assets/music/computer-love-121106.mp3" type="audio/mp3">
         </audio>      
+        <div class="logo">
+            <img src="assets/ieee.png" alt="ieee">
+            <img src="assets/cswhite.png" alt="cs">
+        </div>
         <div class="container game">
             <h1>IEEE ENSIT Hangman Game 1.0</h1>
-            <button id="hintButton" onclick="giveHint()">Get a Hint</button>
-            <button id="restartButton" onclick="startGame()">
-                <i class="fa fa-refresh" aria-hidden="true"></i>
-            </button>
             <div id="game">
-                <div id="difficulty"> </div>
-                <div id="score">Score: 0</div>
-                <div id="level">Level: 1</div>
+                <div class="variable">
+                    <div class="difficulty">
+                      <div class="variable_text">Difficulty:</div>
+                      <div id="difficulty">Easy</div>
+                    </div>
+                    <div class="level-value">
+                      <div class="variable_text">Level:</div>
+                      <div id="level">0</div>
+                    </div>
+                    <div class="score">
+                      <div class="variable_text">Score:</div>
+                      <div id="score">0</div>
+                    </div>
+                  </div>
+                <div class="button-game">
+                    <button id="bombButton" onclick="giveBombe()">💣</button>
+                    <button id="hintButton" onclick="giveHint()"><img src="assets/lamp.png" alt="lamp"></button>
+                    <button id="restartButton" onclick="startGame()">
+                        <i class="fa fa-refresh" aria-hidden="true"></i>
+                    </button>
+                </div>
                 <div id="wordDisplay">_ _ _ _ _</div>
                 <div class="hangman-keyboard">    
                     <div id="keyboard"> </div>
@@ -43,8 +61,23 @@
             </div>
         </div>
     </div>
-    <!-- 1 nav -->
-    <div class="window nav" id="nav" style="z-index:2;">
+    <!-- 1 menu -->
+    <div class="window menu" id="menu" style="z-index:2;">
+        <div class="logo-menu">
+            <img src="assets/ieee.png" alt="ieee">
+            <img src="assets/cswhite.png" alt="cs">
+        </div>
+        <div class="content-menu">
+            <h1 class="title-window">Menu</h1>
+            <div class="center-menu">
+                <button type="button" id="easyButton" onclick="startGame('easy')">Easy</button>
+                <button type="button" id="mediumButton" onclick="startGame('medium')">Medium</button>
+                <button type="button" id="hardButton" onclick="startGame('hard')">Hard</button>
+            </div>
+        </div>      
+    </div>
+    <!-- 2 nav -->
+    <div class="window nav" id="nav" style="z-index:3;">
         <div class="badge-icon" id="badge-icon" style="display:none;" onclick="openLogin()">
                 <img src="assets/avatar/default.jpeg" alt=""  id="res-nav" class="res-nav">
                 <span id="login-name">Anonymous</span> 
@@ -58,17 +91,6 @@
         </div>
         <p id="theme-type" style="display: none;"></p>
         <p id="game-type" style="display: none;"></p>
-    </div>
-    <!-- 2 menu -->
-    <div class="window menu" id="menu" style="z-index:3;">
-        <div class="content-menu">
-            <h1 class="title-window">Menu</h1>
-            <div class="center-menu">
-                <button type="button" id="easyButton" onclick="startGame('easy')">Easy</button>
-                <button type="button" id="mediumButton" onclick="startGame('medium')">Medium</button>
-                <button type="button" id="hardButton" onclick="startGame('hard')">Hard</button>
-            </div>
-        </div>      
     </div>
     <!-- 4 help -->
     <div class="window help" id="help" style="z-index:5; display: none;">
@@ -200,6 +222,10 @@
     </div>   
     <!-- 8 loading --> 
     <div class="window load" id="load" style="z-index:9;">
+        <div class="logo">
+            <img src="assets/ieee.png" alt="ieee">
+            <img src="assets/cswhite.png" alt="cs">
+        </div>
         <div class="load-center" >
             <h1 class="title-window">Hangman CS World</h1>
             <div class="loader"></div>      
