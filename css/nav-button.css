@@ -1,0 +1,53 @@
+.nav{
+    height: 120px;
+    width: 250px; 
+    border: none; 
+    position: absolute;
+    top: 0%;
+    left: 80%;
+    padding: 15px;
+}
+.badge-icon {
+    display: inline-block;
+    padding: 0 25px;
+    height: 50px;
+    width: 200px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    background-color:var(--main-color);
+    margin : -5px 10px 10px ;
+    justify-content: center;
+}
+#login-name{
+    color: var(--texte-color);
+    font-size: 14px;
+    font-weight: bold;
+}
+.badge-icon:hover {
+    background-color:var(--hover-color);
+}
+.badge-icon img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.nav-btn{
+    display: flex;
+    justify-content: center;
+}
+.game-btn button, .nav-btn button ,.center-menu button , .rate-button{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: none;
+    margin: 0 5px;
+    padding: 5px;
+}
+
+.game-btn button i, .nav-btn button i{
+    font-size: 20px;
+    color: var(--icon-color);
+}

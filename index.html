@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE ENSIT Hangman Game 1.0</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel = "icon" href ="assets/logo.PNG">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/divison-window.css">
+    <link rel="stylesheet" href="css/loader.css">
+    <link rel="stylesheet" href="css/ratings.css">
+    <link rel="stylesheet" href="css/nav-button.css">
+    <link rel="stylesheet" href="css/login.css">
+
+    <link rel="stylesheet" href="css/help.css">
+    <link rel="stylesheet" href="css/about-us.css">
+</head>
+<body>
+    <!-- 0 game -->
+    <div class="game-container">
+        <audio id="audio" autoplay loop= 'true' muted>
+            <source src="assets/music/computer-love-121106.mp3" type="audio/mp3">
+        </audio>      
+        <div class="container game">
+            <h1>IEEE ENSIT Hangman Game 1.0</h1>
+            <button id="hintButton" onclick="giveHint()">Get a Hint</button>
+            <button id="restartButton" onclick="startGame()">
+                <i class="fa fa-refresh" aria-hidden="true"></i>
+            </button>
+            <div id="game">
+                <div id="difficulty"> </div>
+                <div id="score">Score: 0</div>
+                <div id="level">Level: 1</div>
+                <div id="wordDisplay">_ _ _ _ _</div>
+                <div class="hangman-keyboard">    
+                    <div id="keyboard"> </div>
+                    <div id="hangman"></div>
+                </div>
+                
+                <div id="message"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 1 nav -->
+    <div class="window nav" id="nav" style="z-index:2;">
+        <div class="badge-icon" id="badge-icon" style="display:none;" onclick="openLogin()">
+                <img src="assets/avatar/default.jpeg" alt=""  id="res-nav" class="res-nav">
+                <span id="login-name">Anonymous</span> 
+        </div>
+        <div class="nav-btn">
+            <button type="button" onclick="startMusic()"><i class="fa fa-volume-off" id="music"></i></button>                
+            <button type="button" onclick="openAboutUs()" title="about-us"><i class="fa fa-users" aria-hidden="true"></i></button>
+            <button type="button" onclick="openHelp()" title="help"><i class="fa fa-question-circle" aria-hidden="true"></i></button>                    
+            <button type="button" onclick="openRating()" title="rating"><i class="fa fa-star" aria-hidden="true"></i>
+            </button>                    
+        </div>
+        <p id="theme-type" style="display: none;"></p>
+        <p id="game-type" style="display: none;"></p>
+    </div>
+    <!-- 2 menu -->
+    <div class="window menu" id="menu" style="z-index:3;">
+        <div class="content-menu">
+            <h1 class="title-window">Menu</h1>
+            <div class="center-menu">
+                <button type="button" id="easyButton" onclick="startGame('easy')">Easy</button>
+                <button type="button" id="mediumButton" onclick="startGame('medium')">Medium</button>
+                <button type="button" id="hardButton" onclick="startGame('hard')">Hard</button>
+            </div>
+        </div>      
+    </div>
+    <!-- 4 help -->
+    <div class="window help" id="help" style="z-index:5; display: none;">
+        <button type="button" class="close-help" onclick="closeHelp()">X</button>
+        <div class="content" >
+            <div class="book">
+                <div id="pages" class="pages">
+                    <div class="page">1 
+                        <h2>IEEE ENSIT Hangman Game 1.0 Guide</h2>
+                        <h4>Presented by CS IEEE ENSIT Club</h4>
+                        <img src="assets/logo1.PNG" alt="help" class="help-img">
+                        <p>Open Me, <br>please!</p>
+                    </div>
+
+                    <div class="page">2
+                        <h2>Introduction</h2>
+                        <p>Welcome to the Hangman Game, a classic word-guessing game with a twist. In this book, we'll guide you through the game's rules, how to play, and some tips and tricks.</p>
+                    </div>
+
+                    <div class="page">3
+                        <h2>Game Rules</h2>
+                        <p>In Hangman, you need to guess the letters of a hidden word. Each wrong guess adds a part to the hangman figure. If the full figure is completed before you guess the word, you lose!</p>            
+                    </div>
+
+                    <div class="page">4
+                        <h2>How to Play</h2>
+                        <ol>
+                            <li>Select a difficulty level.</li>
+                            <li>Start guessing letters.</li>
+                            <li>Win by guessing the word before the figure is completed!</li>
+                        </ol>
+                    </div>
+
+                    <div class="page">5
+                        <h2>About IEEE CS Club</h2>
+                        <p>The IEEE Computer Society is dedicated to advancing the theory and application of computer science and technology. This game is one of our many initiatives to make learning fun and interactive.</p>            
+                    </div>
+
+                    <div class="page">6
+                        <h1>Enjoy our game !!</h1>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>   
+    <!-- 5 about-us -->
+    <div class="window about-us" id="about-us" style="z-index:6; display: none;">
+        <div class="titlebar">
+            <span class="close" onclick="closeAboutUs();">X</span>
+        </div>
+        <div class="content">
+            <h1 class="title-window">ABOUT US</h1>
+            <p>Hello! We are the development team of the IEEE CS Club at the Higher National School of Engineering "ENSIT". Our mission is to create innovative projects and provide technological solutions for our community.</p>
+            <img src="assets/cswhite.png" alt="cs img" title="cs" >
+            <p>We developed Hangman 1.0 as part of our club activities, and we hope you enjoy it! Your feedback is highly appreciated as it helps us improve and grow.</p>
+        </div>
+    </div>  
+    <!--6 rating -->
+    <div class="window rating" id="rating" style="z-index:7;display:none;">
+        <div class="content">
+            <h1 class="title-window">Rate our game</h1>
+            <div class="container-rating">
+                <div>
+                    <p class="sec-title-window">You like the game?</p>
+                    <div class="stars rating-container">
+                        <a>★</a>
+                        <a>★</a>
+                        <a>★</a>
+                        <a>★</a>
+                        <a>★</a>    
+                    </div>
+                </div>
+                <div class="commentaire">
+                    <p class="sec-title-window">What can we do to improve?</p>
+                    <textarea name="commentaire" id="commentaire"></textarea>
+                </div>
+            </div>
+            <button type="button" class="rate-button button" onclick="closeRating()">Confirm</button>
+        </div> 
+    </div>
+    <!-- 7 login -->
+    <div class="window login" id="login-window" style="z-index:8;">
+        <div class="titlebar">
+            <span class="close" onclick="closeLogin();">X</span>
+        </div>
+        <div class="content">
+            <h1 class="title-window">Login</h1>
+            <h2 class="sec-title-window">Choose your avatar:</h2>
+            <div class="avatar-container">
+                <div class="liste-avatar">
+                    <img onClick="updateAv('assets/avatar/av1.PNG');" alt="avatar" src="assets/avatar/av1.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av2.PNG');" alt="avatar" src="assets/avatar/av2.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av3.PNG');" alt="avatar" src="assets/avatar/av3.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av4.PNG');" alt="avatar" src="assets/avatar/av4.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av5.PNG');" alt="avatar" src="assets/avatar/av5.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av6.PNG');" alt="avatar" src="assets/avatar/av6.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av7.PNG');" alt="avatar" src="assets/avatar/av7.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av8.PNG');" alt="avatar" src="assets/avatar/av8.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av9.PNG');" alt="avatar" src="assets/avatar/av9.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av10.PNG');" alt="avatar" src="assets/avatar/av10.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av11.PNG');" alt="avatar" src="assets/avatar/av11.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av12.PNG');" alt="avatar" src="assets/avatar/av12.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av13.PNG');" alt="avatar" src="assets/avatar/av13.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av14.PNG');" alt="avatar" src="assets/avatar/av14.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av15.PNG');" alt="avatar" src="assets/avatar/av15.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av16.PNG');" alt="avatar" src="assets/avatar/av16.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av17.PNG');" alt="avatar" src="assets/avatar/av17.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av18.PNG');" alt="avatar" src="assets/avatar/av18.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av19.PNG');" alt="avatar" src="assets/avatar/av19.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av20.PNG');" alt="avatar" src="assets/avatar/av20.PNG" class="avatar"/>
+                    <img onClick="updateAv('assets/avatar/av21.PNG');" alt="avatar" src="assets/avatar/av21.PNG" class="avatar"/>
+                </div>  
+                <div>
+                    <img src="assets/avatar/default.jpeg" alt="" id="res-login" class="res-login">
+                </div>
+            </div> 
+            <div class="login-container">
+                <div>
+                    <h2 class="sec-title-window">Name: </h2>          
+                    <input type="text" name="name" id="name" placeholder="Name">        
+                </div>
+                <div>
+                    <h2 class="sec-title-window">Email:</h2>     
+                    <input type="email" name="email" id="email" placeholder="Email">         
+                </div>
+                <button type="button" onClick="Submitlogin();">Submit</button>
+            </div>
+        </div>
+    </div>   
+    <!-- 8 loading --> 
+    <div class="window load" id="load" style="z-index:9;">
+        <div class="load-center" >
+            <h1 class="title-window">Hangman CS World</h1>
+            <div class="loader"></div>      
+            <h2 class="wait">Wait ...</h2>    
+        </div> 
+    </div> 
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="game.js"></script>
+    <script src="js/login.js"></script>
+    <script>
+        function loadfunc() {    
+            var load = document.getElementById("load");
+            load.remove();
+        }
+
+        function loading() {
+            setTimeout(loadfunc, 4000);
+        }
+
+        window.onload = function() {
+            loading();
+            fetchWords();
+        };
+    </script>
+</body>
+</html>

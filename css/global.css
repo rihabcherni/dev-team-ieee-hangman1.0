@@ -1,0 +1,56 @@
+:root{
+    --main-color: rgb(255, 119, 0);
+    --window-color: #000000;
+    --icon-color: aliceblue;
+    --border-color: rgb(248, 90, 33);
+    --texte-color:white;
+    --hover-color: rgb(255, 157, 60);
+    --close-btn-color:red;
+    --button-color:rgb(243, 110, 38); 
+    --page-help-color:rgb(205, 205, 205);
+    
+}
+* {
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: "airstrike3d";
+    src: url(../fonts/airstrike3d.ttf);
+}
+@font-face {
+    font-family: "night-machine";
+    src: url(../fonts/Night\ Machine.otf);
+}
+@font-face {
+    font-family: "paint";
+    src: url(../fonts/PaintDropsRegular-0WaJo.ttf);
+}
+@font-face {
+    font-family: "blood";
+    src: url(../fonts/BloodyTerror-GOW9Z.ttf);
+}
+html,body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+}
+button{
+    cursor: pointer;
+    background-color: var(--button-color);
+    color: var(--texte-color);
+    font-family:Arial, Helvetica, sans-serif; 
+    border: 3px solid white;
+    height: 50px;
+}
+button:hover{
+    background-color: var(--hover-color);
+}
+.start-img{
+    border:2px solid red;
+}
+.start2-img{
+    border:2px solid rgb(0, 42, 195);
+}

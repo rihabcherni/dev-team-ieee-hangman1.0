@@ -1,0 +1,177 @@
+.window{
+    position:absolute;
+    height: 100%;
+    width: 100%;  
+    border:5px solid var(--border-color);
+    border-radius: 20px;
+}
+.background{
+    position:absolute;
+    height: 100%;
+    width: 100%;  
+    border: none;
+    border-radius: 0px;
+}
+/***************** close window*******************/
+.close-window{
+    background-color: var(--window-color);
+    height: 50%;
+    width: 40%; 
+    position: absolute;
+    text-align: center;
+    top: 25%;
+    left: 30%; 
+}
+.close-window p{
+    color: var(--border-color);
+    font-size: 20px;
+    font-weight: bold;
+}
+.button-window{
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+/***************** close window*******************/
+/***************** menu window*******************/
+.menu img{
+    width: 100%;
+    height: 100%;
+    position:absolute;
+}
+.menu{
+    background-color: var(--window-color);
+    height: 100%;
+    width: 100%; 
+    position: absolute;
+    top: 0%;
+    left: 0%; 
+    padding: 10px;
+    border-radius: 20px;
+    background-image: url('../assets/background/4.png');
+    background-size: cover;
+    border-radius: 0px !important;
+    border: none !important;
+}
+.menu .title-window{
+ margin-top: 100px !important;
+ margin-bottom: -20px !important;
+ font-size: 55px !important;  
+ color: var(--texte-color); 
+}
+.content-menu {  
+    position: relative;  
+}
+.center-menu{ 
+    position: absolute;  
+    left: 50%;  
+    transform: translate(-50%, 30%);  
+}
+.center-menu button , .button{ 
+    width: 200px !important;
+    margin: 40px !important;
+    display: block !important;
+    font-weight:bold !important;
+    font-size: 20px !important;
+    border-radius: 20px !important;
+}
+/***************** menu window*******************/
+.result-win ,.result-lose{
+    background-color: var(--window-color);
+    height: 80%;
+    width: 50%; 
+    position: absolute;
+    top: 10%;
+    left: 25%; 
+    text-align: center;
+}
+.result-win img ,.result-lose img{
+    width: 70%;
+    height:70%;
+    margin: 0 0 20px;
+}
+.level{
+    background-color: var(--main-color);
+    height: 40%;
+    width:30%; 
+    position: absolute;
+    top: 30%;
+    left: 35%; 
+    text-align: center;
+}
+#level-nbr{
+    position: absolute;
+    left: 40%;
+    color: #2b7a0f;
+    font-size: 25px;
+    background-color: #c4e90a;
+    padding: 20px;
+    border: 5px solid red;
+    border-radius: 10px;
+    width:80px;
+    height: 80px;
+    text-align: center;
+    margin: 0;
+}
+.titlebar{
+    position:absolute;
+    top:0px; 
+    height:18px;
+    width:100%; 
+    padding:5px 10px;
+}
+.content{
+    position: absolute;
+    top:25px; 
+    height:92%;
+    width:99%; 
+    padding:5px;
+    overflow:auto;
+}
+.close{
+    background-color:var(--close-btn-color) !important;
+    padding:7px 10px;
+    margin-right: 5px;
+    font-size: 20px;
+    border-radius: 50%;
+    border: 3px solid var(--texte-color);
+    color:var(--texte-color);
+    cursor: pointer;
+    float:right;
+    font-family: night-machine;
+}
+.title-window{
+    color: rgb(255, 255, 255);
+    font-family: airstrike3d;
+    text-align: center;
+    text-transform: capitalize;
+}
+.sec-title-window{
+    font-family: airstrike3d;
+    margin-left: 10px;
+    color: var(--texte-color);
+    font-size: 22px;
+}
+.btn-controle-game {
+    border: 10px solid transparent;
+}
+.ClignoteRed {
+    animation: redBlink .5s step-end infinite alternate;
+    color: red;
+}
+.ClignoteGreen {
+    animation: greenBlink .5s step-end infinite alternate;
+    color: green;
+}
+@keyframes redBlink { 
+    50% { border-color: #ff0000; } 
+ }
+ @keyframes greenBlink { 
+    50% { border-color: #2b7a0f; } 
+ }
+ #result-img{
+    width: 70%;
+    height: 250px;
+ }

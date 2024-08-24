@@ -1,0 +1,75 @@
+.loader {
+    border: 10px solid var(--icon-color);
+    border-radius: 50%;
+    border-top: 10px solid rgb(255, 98, 0);
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    animation: loadSpin 2s linear infinite;
+  }
+  @keyframes loadSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .load{
+    height: 100%;
+    background-image: url('../assets/background/5.png');
+    background-size: cover;
+    width: 100%; 
+    position: absolute;
+    top: 0%;
+    left: 0%; 
+    border-radius: 0;
+    border: none;
+    padding: 30px 0;
+}
+.load-center{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.load .title-window{
+  font-size: 65px;
+}
+.wait{
+  font-family: airstrike3d;
+  font-size: 35px;
+  text-align: center;
+  margin: 20px 0;
+  animation: flicker 1.5s infinite alternate;
+  color: #fe6a00;
+}
+
+.load .title-window{
+      text-shadow:
+      0 0 4px #ff9c56,
+      0 0 11px #ff9c56,
+      0 0 19px #ff9c56,
+      0 0 40px rgb(255, 98, 0),
+      0 0 80px rgb(255, 98, 0),
+      0 0 90px rgb(255, 98, 0),
+      0 0 100px rgb(255, 98, 0),
+      0 0 150px rgb(255, 98, 0); 
+}
+
+@keyframes flicker {
+    
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+      text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fe6a00,
+      0 0 40px #fe6a00,
+      0 0 80px #fe6a00,
+      0 0 90px #fe6a00,
+      0 0 100px #fe6a00,
+      0 0 150px #fe6a00;
+  
+  }  
+  20%, 24%, 55% {        
+      text-shadow: none;
+  }    
+}
+
