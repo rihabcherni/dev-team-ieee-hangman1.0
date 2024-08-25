@@ -5,7 +5,15 @@ let score = 0;
 let level = 1;
 let maxAttempts = 7;
 let attemptsLeft = maxAttempts;
-let difficulty = 'easy'; 
+let difficulty = 'easy';
+
+let bombCounter = 0;  
+let maxBombs = 5;  
+let canUseBomb = true; 
+
+let hintCounter = 0;  
+let maxHints = 5;  
+let canUseHint = true; 
 
 async function fetchWords() {
     const response = await fetch('words.php');
@@ -14,42 +22,98 @@ async function fetchWords() {
 }
 
 function setDifficulty(level) {
-    document.getElementById("menu").style.display ="none";
+    document.getElementById("menu").style.display = "none";
     difficulty = level;
-    document.getElementById("difficulty").innerHTML =difficulty;
+    document.getElementById("difficulty").innerHTML = difficulty;
+    
+    if (difficulty === 'easy') {
+        maxBombs = 5;
+        maxHints = 5;
+    } else if (difficulty === 'medium') {
+        maxBombs = 3;
+        maxHints = 3;
+    } else if (difficulty === 'hard') {
+        maxBombs = 2;
+        maxHints = 1;
+    }
+    
+    bombCounter = 0;
+    hintCounter = 0;
+
     startGame();
 }
+
 function giveHint() {
-    let unguessedLetters = currentWord.split('').filter(letter => !guessedLetters.includes(letter));
-    
-    if (unguessedLetters.length > 0) {
-        let hintLetter = unguessedLetters[Math.floor(Math.random() * unguessedLetters.length)];
-        guessedLetters.push(hintLetter);
+    if (canUseHint && hintCounter < maxHints) {
+        hintCounter++;
+        updateHintDisplay();
+        let unguessedLetters = currentWord.split('').filter(letter => !guessedLetters.includes(letter));
         
-        const keyButton = document.querySelector(`button.key[data-letter="${hintLetter}"]`);
-        if (keyButton) {
-            keyButton.classList.add('correct');
-            keyButton.querySelector('.icon').textContent = '✔️';
-            keyButton.disabled = true;
+        if (unguessedLetters.length > 0) {
+            let hintLetter = unguessedLetters[Math.floor(Math.random() * unguessedLetters.length)];
+            guessedLetters.push(hintLetter);
+            
+            const keyButton = document.querySelector(`button.key[data-letter="${hintLetter}"]`);
+            if (keyButton) {
+                keyButton.classList.add('correct');
+                keyButton.querySelector('.icon').textContent = '✔️';
+                keyButton.disabled = true;
+            }
+            
+            displayWord();
+            checkWin();
         }
         
-        displayWord();
-        checkWin();
+        if (unguessedLetters.length <= 1) {
+            document.getElementById('hintButton').disabled = true;
+        }
     }
-    
-    // Disable the hint button if no letters are left to guess
-    if (unguessedLetters.length <= 1) {
-        document.getElementById('hintButton').disabled = true;
+}
+
+function giveBombe() {
+    if (canUseBomb && bombCounter < maxBombs) {
+        bombCounter++;
+        updateBombDisplay();
+        let incorrectLetters = Array.from(document.querySelectorAll('.key'))
+            .filter(key => !currentWord.includes(key.getAttribute('data-letter')) && !key.disabled);
+
+        incorrectLetters.sort(() => 0.5 - Math.random());
+
+        let lettersToRemove = incorrectLetters.slice(0, 3);
+        lettersToRemove.forEach(letterButton => {
+            letterButton.disabled = true;
+            letterButton.classList.add('disabled');
+        });
+
+        if (incorrectLetters.length <= 3) {
+            document.getElementById('bombButton').disabled = true;
+        }
+
+    } else if (bombCounter >= maxBombs) {
+    } else {
     }
+}
+
+function updateBombDisplay() {
+    document.getElementById("countBombe").innerHTML = maxBombs - bombCounter;
+    document.getElementById("bombButton").dataset.bombCount = bombCounter;
+}
+function updateHintDisplay() {
+    document.getElementById("countHint").innerHTML = maxHints - hintCounter;
+    document.getElementById("hintButton").dataset.hintCount = hintCounter;
 }
 
 function startGame() {
     guessedLetters = [];
     attemptsLeft = maxAttempts;
+    canUseBomb = true;
+    canUseHint = true;
     document.getElementById('message').textContent = '';
     document.getElementById('hangman').textContent = '';
     document.getElementById('score').textContent = score;
-    document.getElementById('level').textContent =  level;
+    document.getElementById('level').textContent = level;
+    document.getElementById("countBombe").innerHTML = maxBombs - bombCounter;
+    document.getElementById("countHint").innerHTML = maxHints - hintCounter;
     generateKeyboard();
     selectWord();
 
@@ -59,15 +123,22 @@ function startGame() {
         button.classList.remove('disabled');
     });
 
-    document.getElementById('hintButton').disabled = false; // Enable hint button at start
+    document.getElementById('hintButton').disabled = false; 
+    document.getElementById('bombButton').disabled = false;
 
     document.addEventListener('keydown', handleKeyboardInput);
 }
 
-
 function selectWord() {
+    canUseBomb = true;
     const difficultyWords = words[difficulty];
     currentWord = difficultyWords[Math.floor(Math.random() * difficultyWords.length)].toUpperCase();
+    
+    if (difficulty === 'easy') {
+        // Automatically reveal the first letter for easy difficulty
+        guessedLetters.push(currentWord[0]);
+    }
+
     displayWord();
 }
 
@@ -123,16 +194,20 @@ function handleGuess(letter) {
     }
 
     const icon = keyButton.querySelector('.icon');
+    const correctSound = document.getElementById('correctSound');
+    const incorrectSound = document.getElementById('incorrectSound');
 
     if (currentWord.includes(letter)) {
         score += 10;
         keyButton.classList.add('correct');
         icon.textContent = '✔️';
         document.getElementById('score').textContent = score;
+        correctSound.play();
     } else {
         attemptsLeft--;
         keyButton.classList.add('incorrect');
         icon.textContent = '❌';
+        incorrectSound.play();
         updateHangman();
         if (attemptsLeft === 0) {
             endGame(false);
@@ -174,15 +249,15 @@ function endGame(won) {
 
     if (won) {
         message.textContent = 'You won! Moving to next level...';
-        message.style.color='green';
+        message.style.color = 'green';
         level++;
         setTimeout(startGame, 2000);
     } else {
         message.textContent = 'Game Over! The word was: ' + currentWord;
         document.getElementById('restartButton').style.display = 'block';
-        message.style.color='red';
-        level=1;
-        score=0;
+        message.style.color = 'red';
+        level = 1;
+        score = 0;
     }
 }
 
@@ -191,3 +266,6 @@ window.onload = fetchWords;
 document.getElementById('easyButton').addEventListener('click', () => setDifficulty('easy'));
 document.getElementById('mediumButton').addEventListener('click', () => setDifficulty('medium'));
 document.getElementById('hardButton').addEventListener('click', () => setDifficulty('hard'));
+
+document.getElementById('bombButton').addEventListener('click', giveBombe);
+document.getElementById('hintButton').addEventListener('click', giveHint);

@@ -45,8 +45,14 @@
                     </div>
                   </div>
                 <div class="button-game">
-                    <button id="bombButton" onclick="giveBombe()">💣</button>
-                    <button id="hintButton" onclick="giveHint()"><img src="assets/lamp.png" alt="lamp"></button>
+                    <button id="bombButton" class="bomb-button">
+                        💣
+                        <span id="countBombe" class="bomb-count">5</span>
+                    </button>
+                    <button id="hintButton" class="hint-button"onclick="giveHint()">
+                        <img src="assets/lamp.png" alt="lamp">
+                        <span id="countHint" class="hint-count">5</span>
+                    </button>
                     <button id="restartButton" onclick="startGame()">
                         <i class="fa fa-refresh" aria-hidden="true"></i>
                     </button>
@@ -232,6 +238,8 @@
             <h2 class="wait">Wait ...</h2>    
         </div> 
     </div> 
+    <audio id="correctSound" src="assets/music/correct.mp3"></audio>
+    <audio id="incorrectSound" src="assets/music/incorrect.mp3"></audio>
     <script src="js/jquery-3.6.1.min.js"></script>
     <script src="js/settings.js"></script>
     <script src="game.js"></script>

@@ -190,6 +190,22 @@
     font-size: 1rem;
 }
 
+/* Add this CSS to style the bomb count */
+.bomb-button, .hint-button {
+    position: relative;
+    padding: 10px;
+}
+
+.bomb-count, .hint-count{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--texte-color);
+    color: var(--main-color);
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+}
 
 
 
