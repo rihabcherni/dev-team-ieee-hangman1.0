@@ -11,6 +11,11 @@ $easy = [
     "SIGHT",  // 5 letters
     "IAS",    // 3 letters
     "CS",     // 2 letters
+    "SIGHT",       // 5 letters
+    "AESS",        // 4 letters
+    "WIE",         // 3 letters
+    "PES",         // 3 letters
+    "RAS",         // 3 letters
 ];
 
 $medium = [
@@ -51,11 +56,6 @@ $hard = [
     "Scholarships",// 12 letters
     "Partnerships",// 12 letters
     "Xplore",      // 6 letters
-    "SIGHT",       // 5 letters
-    "AESS",        // 4 letters
-    "WIE",         // 3 letters
-    "PES",         // 3 letters
-    "RAS",         // 3 letters
 ];
 
 $words = [

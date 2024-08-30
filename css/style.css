@@ -147,7 +147,7 @@
     align-items: center;
     margin: 0 auto;
 }
-#restartButton, #bombButton, #hintButton{
+#restartButton, #bombButton, #hintButton, #closeGame{
     width: 60px;
     height: 60px;
     padding: 10px;
@@ -162,7 +162,7 @@
 #hintButton img{
     width: 40px !important;
 }
-#restartButton:hover , #hintButton:hover {
+#restartButton:hover , #hintButton:hover, #closeGame:hover {
     background-color: var(--hover-color);
 }
 .variable {
@@ -191,7 +191,7 @@
 }
 
 /* Add this CSS to style the bomb count */
-.bomb-button, .hint-button {
+.bomb-button, .hint-button, .close-game {
     position: relative;
     padding: 10px;
 }

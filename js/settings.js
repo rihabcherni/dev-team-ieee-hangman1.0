@@ -1,21 +1,9 @@
 /**                button control game               **/
-function playPauseGame(){
-    var icon= document.getElementById("play-pause");  
-    icon.setAttribute('data-play', icon.dataset.play==="true"? "false":"true");      
-    if (icon.dataset.play== "false") {
-        icon.classList.remove("fa-play");
-        icon.classList.add("fa-pause"); 
-    }else {
-       icon.classList.remove("fa-pause");
-        icon.classList.add("fa-play");
-    }
-}
 function RestartGame(){
     document.getElementById("b1").disabled = false;
     document.getElementById("b2").disabled = false;
     document.getElementById("b3").disabled = false;      
     var type=document.getElementById("game-type").textContent;
-    playPauseGame()
     startGame(type);
 }
 function RestartGamAfterLose(){
@@ -24,7 +12,6 @@ function RestartGamAfterLose(){
     RestartGame();
 }
 function leaveGame(){
-    playPauseGame();
     document.getElementById("close-window").style.display="block";
 }
 function leaveGameAfterLoseWin(){ window.location.reload();}
@@ -78,7 +65,7 @@ function closeLeaveWindow(){
     document.getElementById("close-window").style.display ="none";
 }
 function confirmLeaveWindow(){
-    window.location.reload();
+    document.getElementById("menu").style.display = "block";
 }
 
 function startMusic(){

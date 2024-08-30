@@ -38,7 +38,7 @@
     display: flex;
     justify-content: center;
 }
-.game-btn button, .nav-btn button ,.center-menu button , .rate-button{
+.game-btn button, .nav-btn button ,.center-menu button {
     border-radius: 50%;
     width: 40px;
     height: 40px;

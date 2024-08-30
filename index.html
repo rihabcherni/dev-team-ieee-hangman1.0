@@ -56,6 +56,10 @@
                     <button id="restartButton" onclick="startGame()">
                         <i class="fa fa-refresh" aria-hidden="true"></i>
                     </button>
+                    <button id="closeGame" class="close-game" title="leave" onclick="leaveGame()">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i> 
+                    </button>     <!--Leave-->
+
                 </div>
                 <div id="wordDisplay">_ _ _ _ _</div>
                 <div class="hangman-keyboard">    
@@ -66,6 +70,17 @@
                 <div id="message"></div>
             </div>
         </div>
+    </div>
+    <!-- 5 close game-->
+    <div class="window close-window" id="close-window" style="z-index:1; display:none;">
+        <div class="content">
+            <h1 class="title-window">Leave Game</h1>
+            <p>Are you sure you want to leave the game?</p>    
+            <div>
+                <button class="button-window" type="button" onclick="closeLeaveWindow()">Cancel</button>
+                <button class="button-window" type="button" onclick="confirmLeaveWindow()">Confirm</button>
+            </div>
+        </div>   
     </div>
     <!-- 1 menu -->
     <div class="window menu" id="menu" style="z-index:2;">
