@@ -66,6 +66,7 @@ function closeLeaveWindow(){
 }
 function confirmLeaveWindow(){
     document.getElementById("menu").style.display = "block";
+    document.getElementById("close-window").style.display = "none";
 }
 
 function startMusic(){

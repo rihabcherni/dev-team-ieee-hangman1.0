@@ -16,6 +16,7 @@
     background-image: url('../assets/background/4.png');
     background-color: black;
     background-size: cover;
+    background-repeat: no-repeat;
     width: 100%; 
     position: absolute;
     top: 0%;
