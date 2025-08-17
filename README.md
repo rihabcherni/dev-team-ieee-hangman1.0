@@ -14,16 +14,16 @@ A classic web-based Hangman game that revives the traditional word-guessing expe
 
 <table>
 <tr>
-<td><img src="screenshots/loading.PNG" alt="Hangman 1.0 - Loading" width="45%"></td>
-<td><img src="screenshots/login.PNG" alt="Hangman 1.0 - Login" width="45%"></td>
+<td><img src="screenshots/loading.PNG" alt="Hangman 1.0 - Loading"></td>
+<td><img src="screenshots/login.PNG" alt="Hangman 1.0 - Login"></td>
 </tr>
 <tr>
-<td><img src="screenshots/about-us.PNG" alt="Hangman 1.0 - About" width="45%"></td>
-<td><img src="screenshots/game.PNG" alt="Hangman 1.0 - Game" width="45%"></td>
+<td><img src="screenshots/about-us.PNG" alt="Hangman 1.0 - About"></td>
+<td><img src="screenshots/game.PNG" alt="Hangman 1.0 - Game"></td>
 </tr>
 <tr>
-<td><img src="screenshots/game2.PNG" alt="Hangman 1.0 - Game 2" width="45%"></td>
-<td><img src="screenshots/game3.PNG" alt="Hangman 1.0 - Game 3" width="45%"></td>
+<td><img src="screenshots/game2.PNG" alt="Hangman 1.0 - Game 2"></td>
+<td><img src="screenshots/game3.PNG" alt="Hangman 1.0 - Game 3"></td>
 </tr>
 </table>
 
@@ -35,14 +35,12 @@ A classic web-based Hangman game that revives the traditional word-guessing expe
 
 A modern, interactive Hangman game with stunning visuals and advanced features, developed by the IEEE Computer Society Club at ENSIT.  
 
-![Game Preview](https://img.shields.io/badge/Status-Active-brightgreen) ![Version](https://img.shields.io/badge/Version-2.0-blue) ![License](https://img.shields.io/badge/License-MIT-yellow)
-
 <div align="center">
 
 <table>
 <tr>
-<td><img src="screenshots/2-game-level.PNG" alt="Hangman 2.0 - Game Level" width="45%"></td>
-<td><img src="screenshots/2-game2.png" alt="Hangman 2.0 - Gameplay" width="45%"></td>
+<td><img src="screenshots/2-game-level.PNG" alt="Hangman 2.0 - Game Level"></td>
+<td><img src="screenshots/2-game2.png" alt="Hangman 2.0 - Gameplay"></td>
 </tr>
 </table>
 
@@ -101,21 +99,6 @@ A modern, interactive Hangman game with stunning visuals and advanced features, 
 - **+10 points** per hint used  
 - Progressive difficulty increases by level  
 - Score resets on Game Over  
-
----
-
-## 📂 Screenshots
-
-<div align="center">
-
-<table>
-<tr>
-<td><img src="assets/screenshot1.png" alt="Hangman 1.0 Screenshot" width="45%"></td>
-<td><img src="assets/screenshot2.png" alt="Hangman 2.0 Screenshot" width="45%"></td>
-</tr>
-</table>
-
-</div>
 
 ---
 
