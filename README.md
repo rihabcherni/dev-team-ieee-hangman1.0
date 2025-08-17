@@ -1,4 +1,4 @@
-# Hangman Game – Versions 1.0 & 2.0
+# Hangman Game – Versions 1.0 & 2.0 
 
 Two modern web-based Hangman game versions:  
 - **1.0**: A classic but enhanced edition with hints, bombs, and user profiles.  
@@ -10,14 +10,24 @@ Two modern web-based Hangman game versions:
 
 A classic web-based Hangman game that revives the traditional word-guessing experience with multiple difficulty levels, hints, bombs, and an interactive score system.
 
-<p align="center">
-  <img src="screenshots/loading.PNG" alt="Hangman Game 1.0 Screenshot" width="60%">
-  <img src="screenshots/login.PNG" alt="Hangman Game 1.0 Screenshot" width="60%">
-  <img src="screenshots/about-us.PNG" alt="Hangman Game 1.0 Screenshot" width="60%">
-  <img src="screenshots/game.PNG" alt="Hangman Game 1.0 Screenshot" width="60%">
-  <img src="screenshots/game2.PNG" alt="Hangman Game 1.0 Screenshot" width="60%">
-  <img src="screenshots/game3.PNG" alt="Hangman Game 1.0 Screenshot" width="60%">
-</p>
+<div align="center">
+
+<table>
+<tr>
+<td><img src="screenshots/loading.PNG" alt="Hangman 1.0 - Loading" width="45%"></td>
+<td><img src="screenshots/login.PNG" alt="Hangman 1.0 - Login" width="45%"></td>
+</tr>
+<tr>
+<td><img src="screenshots/about-us.PNG" alt="Hangman 1.0 - About" width="45%"></td>
+<td><img src="screenshots/game.PNG" alt="Hangman 1.0 - Game" width="45%"></td>
+</tr>
+<tr>
+<td><img src="screenshots/game2.PNG" alt="Hangman 1.0 - Game 2" width="45%"></td>
+<td><img src="screenshots/game3.PNG" alt="Hangman 1.0 - Game 3" width="45%"></td>
+</tr>
+</table>
+
+</div>
 
 ---
 
@@ -27,10 +37,16 @@ A modern, interactive Hangman game with stunning visuals and advanced features, 
 
 ![Game Preview](https://img.shields.io/badge/Status-Active-brightgreen) ![Version](https://img.shields.io/badge/Version-2.0-blue) ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-<p align="center">
-  <img src="screenshots/2-game-level.PNG" alt="Hangman Game 2.0 Screenshot" width="60%">
-  <img src="screenshots/2-game2.png" alt="Hangman Game 2.0 Screenshot" width="60%">
-</p>
+<div align="center">
+
+<table>
+<tr>
+<td><img src="screenshots/2-game-level.PNG" alt="Hangman 2.0 - Game Level" width="45%"></td>
+<td><img src="screenshots/2-game2.png" alt="Hangman 2.0 - Gameplay" width="45%"></td>
+</tr>
+</table>
+
+</div>
 
 ### Modern Design Improvements
 - Glassmorphism UI (blur & transparency)  
@@ -90,19 +106,16 @@ A modern, interactive Hangman game with stunning visuals and advanced features, 
 
 ## 📂 Screenshots
 
-<p align="center">
-  <img src="assets/screenshot1.png" alt="Hangman 1.0 Screenshot" width="60%">
-</p>
+<div align="center">
 
-<p align="center">
-  <img src="assets/screenshot2.png" alt="Hangman 2.0 Screenshot" width="60%">
-</p>
+<table>
+<tr>
+<td><img src="assets/screenshot1.png" alt="Hangman 1.0 Screenshot" width="45%"></td>
+<td><img src="assets/screenshot2.png" alt="Hangman 2.0 Screenshot" width="45%"></td>
+</tr>
+</table>
 
----
-
-## 🚀 Quick Start
-
-Open `index.html` in your browser to play either version (1.0 or 2.0).  
+</div>
 
 ---
 
